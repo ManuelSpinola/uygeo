@@ -1,12 +1,11 @@
 # uygeo <img src="man/figures/logo.png" align="right" height="139" alt="" />
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/tuusuario/uygeo/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/tuusuario/uygeo/actions/workflows/R-CMD-check.yaml)
-[![CRAN status](https://www.r-pkg.org/badges/version/uygeo)](https://CRAN.R-project.org/package=uygeo)
+[![R-CMD-check](https://github.com/ManuelSpinola/uygeo/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ManuelSpinola/uygeo/actions/workflows/R-CMD-check.yaml)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-`uygeo` provides ready-to-use geospatial data for Uruguay as [`sf`](https://r-spatial.github.io/sf/) objects. The package is inspired by [`crgeo`](https://github.com/tuusuario/crgeo) and follows the same design philosophy: minimal dependencies, tidy data, and compatibility with the tidyverse ecosystem.
+`uygeo` provides ready-to-use geospatial data for Uruguay as [`sf`](https://r-spatial.github.io/sf/) objects. The package is inspired by [`crgeo`](https://github.com/ManuelSpinola/crgeo) and follows the same design philosophy: minimal dependencies, tidy data, and compatibility with the tidyverse ecosystem.
 
 ## Installation
 
@@ -14,7 +13,7 @@ You can install the development version of `uygeo` from GitHub:
 
 ```r
 # install.packages("pak")
-pak::pak("tuusuario/uygeo")
+pak::pak("ManuelSpinola/uygeo")
 ```
 
 ## Available datasets
@@ -42,7 +41,7 @@ ggplot(uy) +
 
 ```r
 ggplot(uy_departamentos) +
-  geom_sf(aes(fill = name), color = "white", show.legend = FALSE) +
+  geom_sf(fill = "#009FCC", color = "white") +
   theme_minimal() +
   labs(title = "Departamentos de Uruguay")
 ```
@@ -54,24 +53,23 @@ library(sf)
 
 ggplot(uy_departamentos) +
   geom_sf(fill = "#E8F4F8", color = "#009FCC") +
-  geom_sf_text(aes(label = name), size = 2.5, color = "gray30") +
+  geom_sf_text(aes(label = NOMDEPTO), size = 2.5, color = "gray30") +
   theme_void() +
   labs(
     title = "Uruguay",
     subtitle = "División departamental",
-    caption = "Fuente: Natural Earth"
+    caption = "Fuente: INE Uruguay, Censo 2023"
   )
 ```
 
 ## Data sources
 
-- [Natural Earth](https://www.naturalearthdata.com) — country and administrative boundaries (public domain)
+- [Instituto Nacional de Estadística (INE)](https://www.gub.uy/instituto-nacional-estadistica/cartografia) — límites departamentales, Censo 2023. Licencia de Datos Abiertos Uruguay.
 
 ## Related packages
 
-- [`crgeo`](https://github.com/tuusuario/crgeo) — geospatial data for Costa Rica (same author)
+- [`crgeo`](https://github.com/ManuelSpinola/crgeo) — geospatial data for Costa Rica (same author)
 - [`sf`](https://r-spatial.github.io/sf/) — simple features for R
-- [`rnaturalearth`](https://docs.ropensci.org/rnaturalearth/) — Natural Earth data in R
 
 ## Citation
 
@@ -82,20 +80,20 @@ citation("uygeo")
 ```
 To cite uygeo in publications use:
 
-  Tu Nombre (2025). uygeo: Geospatial Data for Uruguay. R package
-  version 0.1.0. https://github.com/tuusuario/uygeo
+  Manuel Spinola (2025). uygeo: Geospatial Data for Uruguay. R package
+  version 0.1.0. https://github.com/ManuelSpinola/uygeo
 
 A BibTeX entry for LaTeX users is:
 
   @Manual{,
     title  = {uygeo: Geospatial Data for Uruguay},
-    author = {Tu Nombre},
+    author = {Manuel Spinola},
     year   = {2025},
     note   = {R package version 0.1.0},
-    url    = {https://github.com/tuusuario/uygeo},
+    url    = {https://github.com/ManuelSpinola/uygeo},
   }
 ```
 
 ## License
 
-MIT © Tu Nombre
+MIT © Manuel Spinola

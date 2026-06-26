@@ -2,3 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
+data-raw/*.gpkg
+data-raw/*.rar
+data-raw/*.zip
+.DS_Store
